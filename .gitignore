@@ -1,0 +1,16 @@
+# Secrets — never commit
+.env
+.freebuff/
+
+# macOS
+.DS_Store
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Worktrees
+.worktrees/

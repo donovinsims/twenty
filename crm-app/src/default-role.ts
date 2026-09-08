@@ -1,0 +1,19 @@
+import { defineApplicationRole, SystemPermissionFlag } from 'twenty-sdk/define';
+
+import {
+  APP_DISPLAY_NAME,
+  DEFAULT_ROLE_UNIVERSAL_IDENTIFIER,
+} from 'src/constants/universal-identifiers';
+
+export default defineApplicationRole({
+  universalIdentifier: DEFAULT_ROLE_UNIVERSAL_IDENTIFIER,
+  label: `${APP_DISPLAY_NAME} default function role`,
+  description: `${APP_DISPLAY_NAME} default function role`,
+  canReadAllObjectRecords: true,
+  canUpdateAllObjectRecords: true,
+  canSoftDeleteAllObjectRecords: true,
+  canDestroyAllObjectRecords: false,
+  // Agents / AI tools (handoff writer) require the AI permission flag.
+  // Execute logic functions via /metadata requires WORKFLOWS permission flag.
+  permissionFlagUniversalIdentifiers: [SystemPermissionFlag.AI, SystemPermissionFlag.WORKFLOWS],
+});
